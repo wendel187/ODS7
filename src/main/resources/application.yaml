@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ODS7
+  profiles:
+    default: demo
+  jpa:
+    open-in-view: false
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console

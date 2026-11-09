@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#16794b">
+  <meta name="description" content="Acompanhe e entenda o consumo de energia dos seus aparelhos.">
+  <title>Nexturing | Energia Consciente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/app.css" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+      <a class="brand" href="#dashboard" aria-label="Energia Consciente, início">
+        <span class="brand-mark"><i class="bi bi-lightning-charge-fill" aria-hidden="true"></i></span>
+        <span class="brand-copy"><strong>Nexturing Energia</strong><small>CONSCIENTE</small></span>
+      </a>
+      <div class="sidebar-label">MENU PRINCIPAL</div>
+      <nav class="side-nav">
+        <a href="#dashboard" data-view="dashboard"><i class="bi bi-grid-1x2" aria-hidden="true"></i>Visão geral</a>
+        <a href="#aparelhos" data-view="aparelhos"><i class="bi bi-plug" aria-hidden="true"></i>Meus aparelhos</a>
+        <a href="#calculadora" data-view="calculadora"><i class="bi bi-calculator" aria-hidden="true"></i>Calculadora</a>
+        <a href="#simulador" data-view="simulador"><i class="bi bi-sliders" aria-hidden="true"></i>Simulador</a>
+        <a href="#solar" data-view="solar"><i class="bi bi-sun" aria-hidden="true"></i>Simulador Solar</a>
+        <a href="#quiz" data-view="quiz"><i class="bi bi-patch-question" aria-hidden="true"></i>Quiz Energético</a>
+      </nav>
+      <div class="sidebar-label sidebar-label-spaced">APRENDA</div>
+      <nav class="side-nav">
+        <a href="#dicas" data-view="dicas"><i class="bi bi-lightbulb" aria-hidden="true"></i>Dicas de economia</a>
+        <a href="#sobre" data-view="sobre"><i class="bi bi-info-circle" aria-hidden="true"></i>Sobre o projeto</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-tip">
+          <span class="tip-icon"><i class="bi bi-sun" aria-hidden="true"></i></span>
+          <strong>Pequenas escolhas,</strong>
+          <span>um futuro mais sustentável.</span>
+        </div>
+        <span class="sidebar-version">ODS 7 · Energia limpa e acessível</span>
+      </div>
+    </aside>
+
+    <div class="main-column">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="sidebar">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+        <div class="breadcrumb-label"><span>Energia Consciente</span><i class="bi bi-chevron-right" aria-hidden="true"></i><strong id="page-title">Visão geral</strong></div>
+        <div class="topbar-actions">
+          <span class="demo-badge"><span aria-hidden="true"></span> Perfil de demonstração</span>
+          <button class="icon-button" type="button" data-action="tarifa" aria-label="Configurar tarifa"><i class="bi bi-gear" aria-hidden="true"></i></button>
+        </div>
+      </header>
+      <main id="main-content" class="page-content" tabindex="-1">
+        <div id="view-root" aria-live="polite"></div>
+      </main>
+      <footer class="app-footer">
+        <span>Nexturing <span aria-hidden="true">·</span> Energia Consciente · Itinerário Extensionista 2</span>
+        <span>Estimativas para informação. Não substituem a conta de energia.</span>
+      </footer>
+    </div>
+  </div>
+  <button class="nav-backdrop" id="nav-backdrop" type="button" aria-label="Fechar menu"></button>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container" aria-live="assertive" aria-atomic="true"></div>
+  <div class="modal fade" id="tariff-modal" tabindex="-1" aria-labelledby="tariff-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content tariff-modal">
+        <form id="tariff-form">
+          <div class="modal-header">
+            <div><span class="eyebrow">CONFIGURAÇÃO</span><h2 class="modal-title" id="tariff-title">Tarifa de energia</h2></div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+          </div>
+          <div class="modal-body">
+            <label class="form-label" for="tarifaKwh">Valor do kWh (R$)</label>
+            <div class="input-group">
+              <span class="input-group-text">R$</span>
+              <input class="form-control" id="tarifaKwh" name="tarifaKwh" type="number" min="0.0001" max="100" step="0.0001" required>
+            </div>
+            <div class="form-text">Use o valor informado na sua conta. A estimativa não inclui todos os encargos.</div>
+          </div>
+          <div class="modal-footer"><button class="btn btn-primary w-100" type="submit">Salvar tarifa</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

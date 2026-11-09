@@ -1,0 +1,23 @@
+package com.Nexturing.ODS7.controller;
+
+import com.Nexturing.ODS7.dto.DashboardResponse;
+import com.Nexturing.ODS7.service.DashboardService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/dashboard")
+public class DashboardController {
+
+	private final DashboardService dashboardService;
+
+	public DashboardController(DashboardService dashboardService) {
+		this.dashboardService = dashboardService;
+	}
+
+	@GetMapping
+	public DashboardResponse obter() {
+		return dashboardService.obterDashboard();
+	}
+}
